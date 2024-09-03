@@ -12,7 +12,7 @@ telegramService.addCommand(/\/help/, startCommand);
 
 // Global error handling
 process.on('unhandledRejection', (error) => {
-  errorHandler.handleError(error);
+  errorHandler.handleError(error); 
 });
 
 console.log('Bot is running...');
