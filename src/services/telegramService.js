@@ -10,10 +10,26 @@ class TelegramService {
     this.bot.onText(command, callback);
   }
 
-  sendMessage(chatId, message, messageId) {
-    return this.bot.sendMessage(chatId, message, {
-      reply_to_message_id: messageId || null,
+  sendMessage(chatId, message, options) {
+    return this.bot.sendMessage(chatId, message, options);
+  }
+
+  deleteMessage(chatId, messageId) {
+    return this.bot.deleteMessage(chatId, messageId);
+  }
+
+  editMessageText(chatId, messageId, updatedText) {
+    return this.bot.editMessageText(updatedText, {
+      chat_id: chatId,
+      message_id: messageId,
       parse_mode: "Markdown",
+    });
+  }
+
+  editMessageReplyMarkup(chatId, messageId, updatedMarkup) {
+    return this.bot.editMessageReplyMarkup(updatedMarkup, {
+      chat_id: chatId,
+      message_id: messageId,
     });
   }
 
